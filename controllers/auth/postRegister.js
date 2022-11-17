@@ -1,8 +1,7 @@
 const bcrypt = require("bcryptjs/dist/bcrypt");
 const User = require("../../models/user");
-
+const jwt = require("jsonwebtoken");
 const postRegister = async (req, res) => {
-  console.log("tonga eto ve1");
   try {
     const { username, mail, password } = req.body;
 
@@ -23,17 +22,22 @@ const postRegister = async (req, res) => {
     });
 
     //create JWT token
-    const token = jwt.sign({
-      userId: user._id,
-      mail,
-    });
+    const token = jwt.sign(
+      {
+        userId: user._id,
+        mail,
+      },
+      process.env.TOKEN_KEY,
+      {
+        expiresIn: "24h",
+      }
+    );
 
     res.status(201).json({
       userDetails: {
         mail: user.mail,
         token: token,
       },
-      
     });
   } catch (error) {
     console.log(error);
