@@ -21,6 +21,7 @@ const server = http.createServer(app);
 // });
 
 mongoose
+  .set("strictQuery", true)
   .connect(process.env.MONGO_URI)
   .then(() => {
     server.listen(PORT, () => {
