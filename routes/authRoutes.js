@@ -4,6 +4,9 @@ const authControllers = require("../controllers/auth/authControllers.js");
 const Joi = require("joi");
 const validator = require("express-joi-validation").createValidator({});
 const auth = require("../middleware/auth");
+
+
+
 const registerSchema = Joi.object({
   username: Joi.string().min(3).max(12).required(),
   password: Joi.string().min(6).max(12).required(),

@@ -26,6 +26,9 @@
     "joi": "^17.7.0",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^6.7.2",
-    "nodemon": "^2.0.20"
+    "nodemon": "^2.0.20",
+    "socket.io": "^4.7.2",
+    "swagger-jsdoc": "^6.2.8",
+    "typescript": "^5.2.2"
   }
 }
